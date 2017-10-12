@@ -1,0 +1,5 @@
+Valgrind is use to debug and profile a code to make it run faster 
+
+1. It has the memcheck module which is used to detect memory leaks , unitialized memory 
+etc . basically for memory related errors 
+
