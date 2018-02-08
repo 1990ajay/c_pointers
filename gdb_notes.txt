@@ -1,0 +1,63 @@
+rning about gdb
+
+10/17/2017
+
+From Bredan Gregg's blog post
+
+What is GDB ?
+Is it a tool to sove  abuggy code
+
+What is stack trace ? Wiki link
+
+In gdb
+
+Commands
+
+"start" will start the debugging session
+
+Crtl+X+A -> Will display the "text user interface" for the code . it is a cursor program . use Crtl+L to repaint th
+e screen if there is a mess
+
+"list" will display the source code
+
+"next" will step through the next line of code
+
+Ctrl-P is to go to the previous command s
+Ctrl-N is to go to the next command
+
+tui registers general -shows the general purpose register
+
+tui register float
+
+layout asm -> show the assembly layout of the code
+
+Python interepreter built in gdb
+
+Below , I have used pyhton to list the breakpoints in the program. the second command can give the location of the
+breakpoint
+(gdb) python print (gdb.breakpoints())
+(<gdb.Breakpoint object at 0x7f2095c146c0>, <gdb.Breakpoint object at 0x7f2095c146e8>)
+(gdb) python print (gdb.breakpoints()[0].location)
+main
+(gdb) python print (gdb.breakpoints()[1].location)
+/home/vtm/c_pointers/seg_fault.c:8
+
+
+how to insert a breakpoint
+
+
+b 5 -> inserts a breakpoint in line 5
+b main -> inserts a breakpoint in main function
+
+
+Reversible debugging - When there is a seg fault and the core dump is not useful , use gdb to goback one line befor
+e the breakpoint
+
+
+How to enable coredump in ubuntu 
+
+ulimit -c unlimited
+# mkdir /var/cores
+# echo "/var/cores/core.%e.%p" > /proc/sys/kernel/core_pattern
+
+
